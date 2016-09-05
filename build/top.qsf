@@ -59,6 +59,7 @@ set_location_assignment PIN_3 -to led0
 set_location_assignment PIN_7 -to led1
 set_location_assignment PIN_9 -to led2
 set_location_assignment PIN_144 -to switch_
+set_global_assignment -name VERILOG_FILE ../rtl/vjtag_client.v
 set_global_assignment -name QIP_FILE ../models/vjtag/vjtag.qip
 set_global_assignment -name VERILOG_FILE ../rtl/top.v
 set_global_assignment -name SDC_FILE timing.sdc
