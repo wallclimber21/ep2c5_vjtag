@@ -30,6 +30,7 @@ module top(
 	wire [1:0] vjtag_m2s_ir;
 
 	wire		virtual_state_sdr;
+	wire		virtual_state_udr;
 
 	vjtag u_vjtag (
 		.tck				( vjtag_m2s_tck ),
@@ -45,7 +46,7 @@ module top(
 		.virtual_state_e2dr	( ),
 		.virtual_state_pdr	( ),
 		.virtual_state_sdr	( virtual_state_sdr ),
-		.virtual_state_udr	( ),
+		.virtual_state_udr	( virtual_state_udr ),
 		.virtual_state_uir	( )
 		);
 
@@ -57,6 +58,7 @@ module top(
 		.ir_in				( vjtag_m2s_ir  ),
 
 		.virtual_state_sdr	( virtual_state_sdr ),
+		.virtual_state_udr	( virtual_state_udr ),
 
 		.leds				( { led1, led0 } )
 	);
