@@ -1,0 +1,4 @@
+.*swp
+build/db/
+build/incremental_db/
+build/output_files/
