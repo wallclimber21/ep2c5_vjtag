@@ -8,8 +8,10 @@ Usage
 -----
 
 Start virtual JTAG server:
-    quartus_stp -t vjtag_client_control.tcl
+
+    `quartus_stp -t vjtag_client_control.tcl`
 
 Send command to virtual JTAG server:
-    python vjtag_led_counter.py
+
+    `python vjtag_led_counter.py`
 
