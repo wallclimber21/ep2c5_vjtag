@@ -22,7 +22,7 @@ puts "\nSelect JTAG chain connected to $usbblaster_name.\n";
 #Devices on the JTAG chain:
  
 foreach device_name [get_device_names -hardware_name $usbblaster_name] {
-#   puts $device_name
+    puts $device_name
     if { [string match "@1*" $device_name] } {
         set test_device $device_name
     }
@@ -43,16 +43,17 @@ proc closeport { } {
 }
  
 proc set_LEDs {send_data} {
+	set instance_index 0
     openport
     device_lock -timeout 10000
     # Shift through DR.  Note that -dr_value is unimportant since we're not actually capturing the value inside the part, just seeing what shifts out
     puts "Writing - $send_data"
-    device_virtual_ir_shift -instance_index 0 -ir_value 1 -no_captured_ir_value
+    device_virtual_ir_shift -instance_index $instance_index -ir_value 1 -no_captured_ir_value -show_equivalent_device_ir_dr_shift
     #set tdi [device_virtual_dr_shift -dr_value $send_data -instance_index 0  -length 7] #Use this if you want to read back the tdi while you shift in the new value
-    device_virtual_dr_shift -dr_value $send_data -instance_index 0  -length 7 -no_captured_dr_value
+    device_virtual_dr_shift -dr_value $send_data -instance_index $instance_index  -length 7 -no_captured_dr_value -show_equivalent_device_ir_dr_shift
  
     # Set IR back to 0, which is bypass mode
-    device_virtual_ir_shift -instance_index 0 -ir_value 0 -no_captured_ir_value
+    device_virtual_ir_shift -instance_index $instance_index -ir_value 0 -no_captured_ir_value -show_equivalent_device_ir_dr_shift
  
     closeport
  

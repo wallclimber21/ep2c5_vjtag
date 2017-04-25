@@ -20,7 +20,7 @@ module top(
 			counter <= counter + 1'b1;
 		end
 	end
-
+	
 	assign led2 = ~counter[24];
 
 	wire		vjtag_m2s_tck;
@@ -32,7 +32,7 @@ module top(
 	wire		virtual_state_sdr;
 	wire		virtual_state_udr;
 
-	vjtag u_vjtag (
+	vjtag u_vjtag_0 (
 		.tck				( vjtag_m2s_tck ),
 		.tdi				( vjtag_m2s_tdi ),
 		.tdo				( vjtag_s2m_tdo ),
@@ -62,5 +62,65 @@ module top(
 
 		.leds				( { led1, led0 } )
 	);
+	
+
+//`define DUMMY	
+`ifdef DUMMY
+	
+		vjtag u_vjtag_1 (
+		.tck				(  ),
+		.tdi				(  ),
+		.tdo				(  ),
+
+		.ir_out				(				),
+		.ir_in				(   ),
+
+		.virtual_state_cdr	( ),
+		.virtual_state_cir   ( ),
+		.virtual_state_e1dr	( ),
+		.virtual_state_e2dr	( ),
+		.virtual_state_pdr	( ),
+		.virtual_state_sdr	( ),
+		.virtual_state_udr	( ),
+		.virtual_state_uir	( )
+		);
+
+				vjtag u_vjtag_2 (
+		.tck				(  ),
+		.tdi				(  ),
+		.tdo				(  ),
+
+		.ir_out				(				),
+		.ir_in				(   ),
+
+		.virtual_state_cdr	( ),
+		.virtual_state_cir   ( ),
+		.virtual_state_e1dr	( ),
+		.virtual_state_e2dr	( ),
+		.virtual_state_pdr	( ),
+		.virtual_state_sdr	( ),
+		.virtual_state_udr	( ),
+		.virtual_state_uir	( )
+		);
+
+				vjtag u_vjtag_3 (
+		.tck				(  ),
+		.tdi				(  ),
+		.tdo				(  ),
+
+		.ir_out				(				),
+		.ir_in				(   ),
+
+		.virtual_state_cdr	( ),
+		.virtual_state_cir   ( ),
+		.virtual_state_e1dr	( ),
+		.virtual_state_e2dr	( ),
+		.virtual_state_pdr	( ),
+		.virtual_state_sdr	( ),
+		.virtual_state_udr	( ),
+		.virtual_state_uir	( )
+		);
+`endif
+	
 
 endmodule

@@ -1,6 +1,8 @@
 .*swp
 *.bak
+*.qws
 build/db/
 build/incremental_db/
 build/output_files/
 build/simulation/
+build/greybox_tmp/
